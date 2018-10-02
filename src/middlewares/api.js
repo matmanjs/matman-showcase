@@ -88,15 +88,17 @@ export default store => next => action => {
                 return Promise.reject(resData);
             }
 
+            let result = resData.result;
+
             let finalAction = actionWith({
                 type: successType,
-                data: resData
+                data: result
             });
 
             next(finalAction);
 
             if (typeof opts._onSuccess === 'function') {
-                opts._onSuccess(resData, next);
+                opts._onSuccess(result, next);
             }
 
             return finalAction;

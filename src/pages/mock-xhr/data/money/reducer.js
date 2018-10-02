@@ -22,7 +22,7 @@ export default function moneyInfo(state = initialState, action) {
         case MONEY_INFO_REQUEST_SUCCESS:
             update = {
                 retcode: 0,
-                money: data.result.money,
+                money: data.money,
                 isLoaded: true
             };
 

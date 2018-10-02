@@ -19,7 +19,7 @@ export default function bannerInfo(state = initialState, action) {
 
         case BANNER_INFO_REQUEST_SUCCESS:
             update = {
-                data: data.result,
+                data: data,
                 isLoaded: true
             };
 
