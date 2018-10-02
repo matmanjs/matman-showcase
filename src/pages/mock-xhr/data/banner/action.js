@@ -11,7 +11,7 @@ function fetchBannerInfo() {
     return {
         [CALL_API]: {
             types: [BANNER_INFO_REQUEST, BANNER_INFO_REQUEST_SUCCESS, BANNER_INFO_REQUEST_FAIL],
-            url: '/cgi-bin/a/b/get_banner',
+            url: 'http://now.qq.com/cgi-bin/a/b/get_banner',
             type: 'get'
         }
     };

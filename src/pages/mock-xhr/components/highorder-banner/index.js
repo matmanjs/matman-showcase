@@ -10,6 +10,10 @@ class HighorderBanner extends Component {
         super(props, context);
     }
 
+    componentDidMount() {
+        this.props.loadBannerInfo();
+    }
+
     handleEnter = () => {
 
     };
