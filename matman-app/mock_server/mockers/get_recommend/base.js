@@ -5,10 +5,7 @@ const baseCgi = require('../../lib/base-cgi');
  * @type {Object}
  */
 const defaultResult = {
-    uid: 0,
-    type: 0,
-    description: '',
-    other_msg: 'other msg'
+    list: []
 };
 
 /**

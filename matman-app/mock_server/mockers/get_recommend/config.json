@@ -1,0 +1,4 @@
+{
+  "description": "获取推荐列表",
+  "route": "/cgi-bin/a/b/get_recommend"
+}
