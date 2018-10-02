@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import DisplayBanner from './display-banner';
-
 import { loadBannerInfo } from '../../data/banner';
 import { clickBanner } from '../../business/banner-controller';
 
@@ -20,9 +18,13 @@ class HighorderBanner extends Component {
     render() {
         const { isLoaded, data } = this.props;
 
+        if (!isLoaded) {
+            return null;
+        }
+
         return (
             <div className="highorder-banner">
-                <DisplayBanner isLoaded={isLoaded} data={data} enter={this.handleEnter} />
+                <div className="pic" style={{ backgroundImage: `url(${data.pic})` }} onClick={this.handleEnter} />
             </div>
         );
     }
