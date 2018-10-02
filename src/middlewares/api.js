@@ -83,6 +83,11 @@ export default store => next => action => {
             return res.body || {};
         })
         .then((resData) => {
+            // 为了更易于处理问题，我们将 CGI 中 retcode 值不为 0 的都统一认为是失败的。
+            if (resData.retcode !== 0) {
+                return Promise.reject(resData);
+            }
+
             let finalAction = actionWith({
                 type: successType,
                 data: resData

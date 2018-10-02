@@ -5,11 +5,13 @@ import { MONEY_INFO_REQUEST, MONEY_INFO_REQUEST_FAIL, MONEY_INFO_REQUEST_SUCCESS
  */
 const initialState = {
     isLoaded: false,
-    money: 0
+    money: 0,
+    retcode: 0,
+    errmsg: ''
 };
 
 export default function moneyInfo(state = initialState, action) {
-    let { type, data } = action,
+    let { type, data, error } = action,
         update = {};
 
     switch (type) {
@@ -19,6 +21,7 @@ export default function moneyInfo(state = initialState, action) {
 
         case MONEY_INFO_REQUEST_SUCCESS:
             update = {
+                retcode: 0,
                 money: data.result.money,
                 isLoaded: true
             };
@@ -27,6 +30,8 @@ export default function moneyInfo(state = initialState, action) {
 
         case MONEY_INFO_REQUEST_FAIL:
             update = {
+                retcode: error.retcode,
+                errmsg: (error.errmsg || '内部异常，请稍后再试') + `(${error.retcode})`,
                 isLoaded: true
             };
 

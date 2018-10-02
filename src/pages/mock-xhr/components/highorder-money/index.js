@@ -12,16 +12,28 @@ class HighorderMoney extends Component {
     }
 
     render() {
-        const { isLoaded, money } = this.props;
+        const { isLoaded, money, errmsg } = this.props;
 
         const moneyShow = getMoneyShow(money);
+
+        const isShowMoney = isLoaded && !errmsg;
+        const isShowErrMsg = isLoaded && errmsg;
+        const isShowLoading = !isShowMoney && !isShowErrMsg;
 
         return (
             <div className="highorder-money">
                 <div className="title">红包余额（元）</div>
 
                 {
-                    isLoaded ? <div className="money">{moneyShow}</div> : <div className="loading">加载中...</div>
+                    isShowMoney ? <div className="money">{moneyShow}</div> : null
+                }
+
+                {
+                    isShowErrMsg ? <div className="errmsg">{errmsg}</div> : null
+                }
+
+                {
+                    isShowLoading ? <div className="loading">加载中...</div> : null
                 }
 
             </div>
@@ -34,7 +46,9 @@ function mapStateToProps(state) {
 
     return {
         isLoaded: moneyInfo.isLoaded,
-        money: moneyInfo.money
+        money: moneyInfo.money,
+        errmsg: moneyInfo.errmsg
+
     };
 }
 
