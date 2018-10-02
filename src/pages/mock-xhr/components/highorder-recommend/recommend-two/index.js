@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import RoomCard from '../room-card';
+import Empty from '../empty';
 
 import './index.less';
 
@@ -20,20 +21,25 @@ export default class DisplayRecommendTwo extends Component {
                     ) : null
                 }
 
-                <div className="list">
-                    {
-                        list.map((item, index) => {
-                            return (
-                                <RoomCard
-                                    key={item.roomId}
-                                    index={index}
-                                    data={item}
-                                    enter={enter}
-                                />
-                            );
-                        })
-                    }
-                </div>
+                {
+                    list.length ? (
+                        <div className="list">
+                            {
+                                list.map((item, index) => {
+                                    return (
+                                        <RoomCard
+                                            key={item.roomId}
+                                            index={index}
+                                            data={item}
+                                            enter={enter}
+                                        />
+                                    );
+                                })
+                            }
+                        </div>
+                    ) : <Empty />
+                }
+
             </section>
         );
     }
