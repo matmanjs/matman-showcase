@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import DisplayBanner from './display-banner';
 
 import { loadBannerInfo } from '../../data/banner';
+import { clickBanner } from '../../business/banner-controller';
 
 import './index.less';
 
@@ -17,7 +18,7 @@ class HighorderBanner extends Component {
     }
 
     handleEnter = () => {
-        alert('clicked!');
+        clickBanner(this.props.data);
     };
 
     render() {
