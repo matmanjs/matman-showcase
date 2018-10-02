@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { loadMoneyInfo } from '../../data/money';
-import { clickBanner } from '../../business/banner-controller';
+import { getMoneyShow } from '../../business/money-controller';
 
 import './index.less';
 
@@ -11,21 +11,19 @@ class HighorderMoney extends Component {
         this.props.loadMoneyInfo();
     }
 
-    handleEnter = () => {
-        clickBanner(this.props.data);
-    };
-
     render() {
         const { isLoaded, money } = this.props;
 
-        if (!isLoaded) {
-            return null;
-        }
+        const moneyShow = getMoneyShow(money);
 
         return (
             <div className="highorder-money">
-                {money}
-                {/*<div className="pic" style={{ backgroundImage: `url(${data.pic})` }} onClick={this.handleEnter} />*/}
+                <div className="title">红包余额（元）</div>
+
+                {
+                    isLoaded ? <div className="money">{moneyShow}</div> : <div className="loading">加载中...</div>
+                }
+
             </div>
         );
     }
