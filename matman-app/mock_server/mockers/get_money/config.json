@@ -1,0 +1,8 @@
+{
+  "description": "获取用户的余额",
+  "route": "/cgi-bin/a/b/get_money",
+  "defaultModule": "success_100",
+  "tags": [
+    "首屏CGI"
+  ]
+}

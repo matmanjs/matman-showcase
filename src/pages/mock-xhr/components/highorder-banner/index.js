@@ -9,10 +9,6 @@ import { clickBanner } from '../../business/banner-controller';
 import './index.less';
 
 class HighorderBanner extends Component {
-    constructor(props, context) {
-        super(props, context);
-    }
-
     componentDidMount() {
         this.props.loadBannerInfo();
     }
