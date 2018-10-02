@@ -1,0 +1,9 @@
+{
+  "name": "matman-app",
+  "scripts": {
+    "start": "matman start"
+  },
+  "dependencies": {
+    "matman-mock": "^3.0.14"
+  }
+}
