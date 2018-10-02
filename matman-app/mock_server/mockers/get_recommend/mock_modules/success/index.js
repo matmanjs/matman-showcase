@@ -3,7 +3,7 @@ const { getSuccess } = require('../../base');
 module.exports = function () {
     return getSuccess({
         list: [{
-            anchorName: '欢欢💕唱歌的妹子✨',
+            anchorName: '欢欢',
             roomId: 1210780249,
             online: 1,
             pic: 'https://pic.url.cn/hy_personal_room/1210780249/12107802491536323806/640'
