@@ -4,15 +4,15 @@ import { connect } from 'react-redux';
 import DisplayRecommendTwo from './recommend-two';
 
 import { loadRecommendInfo } from '../../data/recommend';
+import { enterRoom } from '../../business/recommend-controller';
 
 class HighorderRecommend extends Component {
-
     componentDidMount() {
         this.props.loadRecommendInfo(4);
     }
 
-    handleEnter = () => {
-
+    handleEnter = (curRoom) => {
+        enterRoom(curRoom.roomId);
     };
 
     render() {
