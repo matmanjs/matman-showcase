@@ -4,7 +4,8 @@ import { BANNER_INFO_REQUEST, BANNER_INFO_REQUEST_FAIL, BANNER_INFO_REQUEST_SUCC
  * @type {Object}
  */
 const initialState = {
-    isLoaded: false
+    isLoaded: false,
+    data: {}
 };
 
 export default function bannerInfo(state = initialState, action) {
@@ -18,7 +19,7 @@ export default function bannerInfo(state = initialState, action) {
 
         case BANNER_INFO_REQUEST_SUCCESS:
             update = {
-                ...data,
+                data: data.result,
                 isLoaded: true
             };
 

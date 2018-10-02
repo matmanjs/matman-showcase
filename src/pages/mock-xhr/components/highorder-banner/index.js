@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import DisplayBanner from './display-banner';
+
 import { loadBannerInfo } from '../../data/banner';
 
 import './index.less';
@@ -15,19 +17,15 @@ class HighorderBanner extends Component {
     }
 
     handleEnter = () => {
-
+        alert('clicked!');
     };
 
     render() {
-        const { isLoaded, bannerInfo } = this.props;
-
-        // 计算wording文案
-        // 如果正在下载中，则展示下载进度
-        // 否则通过活动配置信息与房间的信息获得当前的wording
+        const { isLoaded, data } = this.props;
 
         return (
             <div className="highorder-banner">
-                {JSON.stringify(bannerInfo, null, 2)}
+                <DisplayBanner isLoaded={isLoaded} data={data} enter={this.handleEnter} />
             </div>
         );
     }
@@ -38,7 +36,7 @@ function mapStateToProps(state) {
 
     return {
         isLoaded: bannerInfo.isLoaded,
-        bannerInfo: bannerInfo
+        data: bannerInfo.data
     };
 }
 

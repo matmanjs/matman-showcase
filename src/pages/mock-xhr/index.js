@@ -12,7 +12,6 @@ export default class MockXhr extends Component {
     render() {
         return (
             <div className="page-mock-xhr">
-                <h2>demo01</h2>
                 <Banner />
             </div>
         );
