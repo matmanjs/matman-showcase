@@ -1,12 +1,13 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunk from 'redux-thunk';
 
-import api from '../middlewares/api';
+import api from './middlewares/api';
+
+import { reducer as bannerInfo } from './pages/mock-xhr/data/banner';
 
 const configureStore = preloadedState => createStore(
     combineReducers({
-        // 'default': () => ({
-        // })
+        bannerInfo
     }),
     preloadedState,
     applyMiddleware(thunk, api)
