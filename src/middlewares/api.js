@@ -44,7 +44,9 @@ export default store => next => action => {
                 obj[STATUS] = 'success';
                 break;
             case failureType:
+            default:
                 obj[STATUS] = 'fail';
+                break;
         }
 
         if (obj[STATUS] !== 'fetching') {
@@ -70,9 +72,9 @@ export default store => next => action => {
 
     // TODO 开发模式下暂时写死端口
     let requestURL = opts.url;
-    if (process.env.NODE_ENV !== 'production') {
-        requestURL = 'http://localhost:9527' + requestURL;
-    }
+    // if (process.env.NODE_ENV !== 'production') {
+    //     requestURL = 'http://localhost:9527' + requestURL;
+    // }
 
     // 发送 ajax 请求
     return request(opts.type, requestURL)

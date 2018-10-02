@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './index.less';
 
-export default class Home extends Component {
+export default class MockXhr extends Component {
     constructor(props, context) {
         super(props, context);
     }
