@@ -1,0 +1,55 @@
+@import "../../../../../assets/css/mixin";
+
+.display-recommend-two {
+    clear: both;
+    background-color: rgb(242, 242, 242);
+
+    .title {
+        height: 45px;
+        line-height: 45px;
+        padding-left: 11px;
+        color: rgb(119, 119, 119);
+        font-size: 16px;
+    }
+
+    .list {
+        .clear();
+        background-color: rgb(242, 242, 242);
+
+        &:before, &:after {
+            display: table;
+            content: " ";
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .r2-room-card {
+            float: left;
+            width: 50%;
+
+            .box {
+                .img {
+                    height: 0;
+                    padding-top: 100%;
+                }
+            }
+
+            &:nth-child(2n+1) {
+                clear: left;
+
+                .box {
+                    margin-right: 1.5px;
+                }
+            }
+
+            &:nth-child(2n) {
+                clear: right;
+
+                .box {
+                    margin-left: 1.5px;
+                }
+            }
+        }
+    }
+}
+
