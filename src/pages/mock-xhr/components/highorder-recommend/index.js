@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import DisplayRecommendTwo from './recommend-two';
 
 import { loadRecommendInfo } from '../../data/recommend';
-import { enterRoom } from '../../business/recommend-controller';
+import { enterRoom, getOnlineShow } from '../../business/recommend-controller';
 
 class HighorderRecommend extends Component {
     componentDidMount() {
@@ -22,10 +22,16 @@ class HighorderRecommend extends Component {
             return null;
         }
 
+        let showList = list.map((item) => {
+            return Object.assign({}, item, {
+                online: getOnlineShow(item.online)
+            });
+        });
+
         return (
             <DisplayRecommendTwo
                 title="大家都在看"
-                list={list}
+                list={showList}
                 enter={this.handleEnter}
             />
         );

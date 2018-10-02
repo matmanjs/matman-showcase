@@ -15,12 +15,12 @@ module.exports = function () {
         }, {
             anchorName: '可樂☘️安静唱歌',
             roomId: 1211052048,
-            online: 9999,
+            online: 9800,
             pic: 'https://pic.url.cn/hy_personal_room/1211052048/12110520481536398310/640'
         }, {
             anchorName: '我的小白狐狸',
             roomId: 1218375629,
-            online: 10086,
+            online: 108880,
             pic: 'https://pic.url.cn/hy_personal_room/1218375629/12183756291530694005/640'
         }]
     });
