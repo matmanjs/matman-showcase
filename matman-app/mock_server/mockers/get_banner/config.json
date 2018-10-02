@@ -1,0 +1,8 @@
+{
+  "description": "获取banner",
+  "route": "/cgi-bin/a/b/get_banner",
+  "defaultModule": "success_type_1",
+  "tags": [
+    "首屏CGI"
+  ]
+}
