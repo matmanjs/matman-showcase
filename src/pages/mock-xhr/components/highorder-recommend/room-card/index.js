@@ -3,10 +3,6 @@ import React, { Component } from 'react';
 import './index.less';
 
 export default class DisplayRoomCard extends Component {
-    constructor(props, context) {
-        super(props, context);
-    }
-
     handleClick = () => {
         const { index, data, enter } = this.props;
         if (typeof enter === 'function') {
