@@ -11,6 +11,7 @@ export default class StubGetMatman {
     init() {
         let sendRequestClone = jsbridgeUtil.sendRequest;
         console.log('sendRequestClone', sendRequestClone);
+        console.log('jsbridgeUtil', jsbridgeUtil);
 
         window.mytest1 = jsbridgeUtil;
 
