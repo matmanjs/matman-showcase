@@ -5,10 +5,7 @@ function sendRequest(params, callback) {
     }, 100);
 }
 
-// export default {
-//     sendRequest
-// };
-
-module.exports = {
+// 目前发现必须得这么做，否则 sinon.stub 会无法生效
+export default {
     sendRequest
 };
