@@ -14,8 +14,12 @@ export default function Home() {
                     rel="noopener noreferrer">Issues</a>！</p>
 
             <h2>1. 示例说明</h2>
-            <h3>1.1 基于XHR的数据模拟</h3>
+            <h3>1.1 XHR的数据模拟</h3>
             <p>页面地址：<NavLink to="/mock-xhr" activeClassName="active">/mock-xhr</NavLink> 。</p>
+            <p>该页面展示的是典型的前端 h5 项目，为避免复杂，我们选取了几个典型的场景进行演示。</p>
+
+            <h3>1.2 异步数据模拟</h3>
+            <p>页面地址：<NavLink to="/stub-async" activeClassName="active">/stub-async</NavLink> 。</p>
             <p>该页面展示的是典型的前端 h5 项目，涉及几条 CGI</p>
         </div>
     );
