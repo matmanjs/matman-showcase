@@ -1,7 +1,8 @@
 {
   "name": "matman-app",
   "scripts": {
-    "start": "matman start"
+    "start": "matman start",
+    "start-tmp": "node ../../matman/packages/matman-cli/bin/matman start --dev"
   },
   "dependencies": {
     "matman-mock": "^3.0.14"

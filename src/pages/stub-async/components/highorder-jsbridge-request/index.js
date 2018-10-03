@@ -9,8 +9,8 @@ export default class HighorderJsbridgeRequest extends Component {
         super(props, context);
 
         this.state = {
-            name: 'unknown name',
-            desc: 'unknown desc'
+            name: 'initial name',
+            desc: 'initial desc'
         };
     }
 
