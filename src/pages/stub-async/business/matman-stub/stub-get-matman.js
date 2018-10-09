@@ -14,7 +14,7 @@ export default class StubGetMatman {
         sinon.stub(jsbridgeUtil, 'sendRequest').callsFake((params, callback) => {
             console.log('======准备执行打桩数据 jsbridgeUtil.sendRequest=======');
 
-            matmanStubAsync.util.asyncClientEmit(this.asyncClient, this.route, params)
+            matmanStubAsync.util.request(this.asyncClient, this.route, params)
                 .then((data) => {
                     callback(Object.assign({ retcode: 0 }, data));
                 })

@@ -11,6 +11,17 @@ export default class HighorderRecievePush extends Component {
         };
     }
 
+    componentDidMount() {
+        // 被动接受后台 push 的方法
+        window.gReceiveRemotePush = (response) => {
+            console.log('=== window.gReceiveRemotePush ===', response);
+
+            this.setState({
+                msg: typeof response === 'string' ? response : JSON.stringify(response)
+            });
+        };
+    }
+
     render() {
         let { msg } = this.state;
         return (

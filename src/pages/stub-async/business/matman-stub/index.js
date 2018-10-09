@@ -1,6 +1,7 @@
 import matmanStubAsync from 'matman-stub-async';
 
 import StubGetMatman from './stub-get-matman';
+import StubRecievePush from './stub-recieve-push';
 
 // url 参数中必须有stub_ip=xxx，指定websocket服务器的地址
 // export const STUB_IP = location.search
@@ -24,4 +25,5 @@ export default function init() {
     const asyncClient = new matmanStubAsync.StubAsyncClient();
 
     new StubGetMatman(asyncClient).init();
+    // new StubRecievePush(asyncClient).init();
 }
