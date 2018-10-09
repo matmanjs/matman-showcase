@@ -25,5 +25,7 @@ export default function init() {
     const asyncClient = new matmanStubAsync.StubAsyncClient();
 
     new StubGetMatman(asyncClient).init();
-    // new StubRecievePush(asyncClient).init();
+
+    new StubRecievePush(asyncClient).init();
+
 }
