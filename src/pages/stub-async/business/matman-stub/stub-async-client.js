@@ -6,6 +6,9 @@ export default class StubAsyncClient {
 
         this.socket = io(url);
 
+        // 序列号，用于识别不同的事件
+        this._seq = 0;
+
         this.init();
     }
 
@@ -17,7 +20,7 @@ export default class StubAsyncClient {
         });
 
         this.socket.on('disconnect', function () {
-            console.log('disconnect');
+            console.log('disconnect ' + self.socket.id);
         });
     }
 
@@ -30,7 +33,7 @@ export default class StubAsyncClient {
     }
 
     /**
-     * 增加打桩点
+     * 监听某个桩数据回调
      * @param {String} route 路由
      * @param {Function} callback 回调，接受一个参数：data（结果）
      */
@@ -45,24 +48,30 @@ export default class StubAsyncClient {
     }
 
     /**
-     * 增加打桩点
+     * 主动查询某个桩数据
      * @param {String} route 路由
      * @param {Object} params 额外的参数
      * @param {Function} callback 回调，接受一个参数：data（结果）
      */
     emit(route, params = {}, callback) {
-        let eventName = route + Date.now();
-
         if (typeof callback === 'function') {
+            // 生成一个唯一的事件名，以便能够监听桩数据的返回
+            let eventName = `[${Date.now()}][${this._seq}]${route}`;
+
+            this._seq++;
+
+            // 触发请求
             this.socket.emit(route, params, {
                 eventName: eventName
             });
 
+            // 接受回调
             this.socket.on(eventName, (data) => {
                 console.log('[stub-async-client on data after emit]', eventName, route, data);
                 callback(data);
             });
         } else {
+            // 触发请求
             this.socket.emit(route, params);
         }
     }
