@@ -1,4 +1,4 @@
-import matmanStubAsync from 'matman-stub-async';
+import matmanMockAsync from 'matman-mock-async';
 
 import StubGetMatman from './stub-get-matman';
 import StubRecievePush from './stub-recieve-push';
@@ -22,7 +22,7 @@ export default function init() {
     // TODO 如果是用代理的方式在手机端调试，则必须使用 ip 的方式访问，不能够使用 localhost 和 127.0.0.1
     // const matmanStubClient = new MatmanStubClient('http://127.0.0.1:3000');
     // const matmanStubClient = new MatmanStubClient('http://10.66.95.54:3000');
-    const asyncClient = new matmanStubAsync.AsyncClient(STUB_IP);
+    const asyncClient = new matmanMockAsync.AsyncClient(STUB_IP);
 
     new StubGetMatman(asyncClient).init();
 
