@@ -7,10 +7,10 @@ import StubRecievePush from './stub-recieve-push';
 // export const STUB_IP = location.search
 //     .match(new RegExp('(\\?|&)stub_ip=([^&]*)(&|$)'))
 //     ? decodeURIComponent(RegExp.$2) : '';
-// export const STUB_IP = '127.0.0.1:9527';
+export const STUB_IP = '127.0.0.1:9527';
 // export const STUB_IP = '10.66.67.146:9527';
 // 可以使用代理的方式来代理到指定的端口上
-export const STUB_IP = 'local.matmanjs.org';
+// export const STUB_IP = 'local.matmanjs.org';
 
 export default function init() {
     if (!STUB_IP) {
@@ -22,7 +22,7 @@ export default function init() {
     // TODO 如果是用代理的方式在手机端调试，则必须使用 ip 的方式访问，不能够使用 localhost 和 127.0.0.1
     // const matmanStubClient = new MatmanStubClient('http://127.0.0.1:3000');
     // const matmanStubClient = new MatmanStubClient('http://10.66.95.54:3000');
-    const asyncClient = new matmanStubAsync.StubAsyncClient();
+    const asyncClient = new matmanStubAsync.StubAsyncClient(STUB_IP);
 
     new StubGetMatman(asyncClient).init();
 
