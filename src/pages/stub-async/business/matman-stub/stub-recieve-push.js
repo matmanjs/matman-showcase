@@ -1,5 +1,3 @@
-import matmanStubAsync from 'matman-stub-async';
-
 export default class StubRecievePush {
   constructor(asyncClient) {
     this.asyncClient = asyncClient;
@@ -7,14 +5,9 @@ export default class StubRecievePush {
   }
 
   init() {
-    matmanStubAsync.util.receive(this.asyncClient, this.route, (data) => {
+    this.asyncClient.listen(this.route, (data) => {
       console.log('===recieve=====', data);
       window.gReceiveRemotePush(data);
     });
-
-    // setTimeout(() => {
-    //   console.log('-------3000------');
-    //   this.asyncClient.emit(this.route, 'helllo,world');
-    // }, 3000);
   }
 }
