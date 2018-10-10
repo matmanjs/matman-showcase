@@ -1,12 +1,11 @@
-export default class StubRecievePush {
+export default class AsyncReceivePush {
   constructor(asyncClient) {
     this.asyncClient = asyncClient;
-    this.route = '/stub/a/b/stub_recieve_push';
+    this.route = '/async/a/b/async_receive_push';
   }
 
   init() {
     this.asyncClient.listen(this.route, (data) => {
-      console.log('===recieve=====', data);
       window.gReceiveRemotePush(data);
     });
   }
